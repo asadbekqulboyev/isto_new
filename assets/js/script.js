@@ -1,6 +1,5 @@
 (function(jQuery, $) {
 "use strict";
-
 /* Phone Input Fix */
 $(document).ready(function() {
     if ($('.js-phone-input').length && typeof window.intlTelInput === 'function') {
@@ -10,7 +9,6 @@ $(document).ready(function() {
             });
         });
     }
-
     $('.js-phone-input').on('input', function() {
         this.value = this.value.replace(/[^0-9+()-\s]/g, '');
     });
