@@ -5,8 +5,6 @@ $(document).ready(function () {
       alert("Thank you! Your message has been sent (Demo mode).");
     }
   });
-
-  // Offline fallback for animations and lazy loading
   document.addEventListener("DOMContentLoaded", function () {
     // Trigger animations for sections
     var animateItems = document.querySelectorAll(
@@ -32,35 +30,48 @@ $(document).ready(function () {
 
 let lastScroll = 0;
 const header = $(".header");
-const showPoint = header.outerHeight(); // qachondan fixed bo'lsin
-
+const showPoint = header.outerHeight();
 $(window).on("scroll", function () {
   let currentScroll = $(this).scrollTop();
-
-  // Tepada bo'lsa hammasini reset qilamiz
   if (currentScroll <= 0) {
     header.removeClass("fixed hide");
     lastScroll = 0;
     return;
   }
-
-  // Pastga scroll qilsa -> header yo'qoladi
   if (currentScroll > lastScroll) {
     header.addClass("hide");
-  }
-  // Tepaga scroll qilsa -> fixed bo'lib chiqadi
-  else {
+  } else {
     if (currentScroll > showPoint) {
       header.addClass("fixed").removeClass("hide");
     }
   }
-
-  // Scroll bir oz bo'lsa ham fixed bo'lib qolmasligi uchun
   if (currentScroll <= showPoint) {
     header.removeClass("fixed");
   }
-
   lastScroll = currentScroll;
+  $(".content_block , .content_block_picture").each(function () {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+      $(this).addClass("animated");
+    }
+  });
+  var knowTop = $(".know").offset().top;
+  var knowHeight = $(".know").outerHeight();
+  var scrollTop = $(window).scrollTop();
+  var windowHeight = $(window).height();
+  if (
+    scrollTop + windowHeight > knowTop + 100 &&
+    scrollTop < knowTop + knowHeight
+  ) {
+    $(".know-door").addClass("active");
+  } else {
+    $(".know-door").removeClass("active");
+  }
 });
 
 $(".burger_button").click(function () {
@@ -84,7 +95,62 @@ $(".hero_slider").slick({
 
   appendDots: $(".hero"),
 });
-
+$(".logo__item.last").slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: false,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 600,
+  responsive: [
+    {
+      breakpoint: 450,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: true,
+      },
+    },
+  ],
+});
 $(".mobile_phones_icon").click(function () {
   $(".mobile_phones_content").toggleClass("active");
+});
+var input = document.querySelector("#phone");
+var iti = window.intlTelInput(input, {
+  initialCountry: "auto",
+  separateDialCode: true,
+  geoIpLookup: function (success, failure) {
+    $.get("https://ipapi.co/json/", function () {}, "json").always(
+      function (resp) {
+        var countryCode = resp && resp.country_code ? resp.country_code : "uz";
+        success(countryCode.toLowerCase());
+      },
+    );
+  },
+});
+
+$("#phone").on("blur", function () {
+  console.log(iti.getNumber());
+});
+
+$(".select__input").on("click", function (e) {
+  e.stopPropagation();
+  $(this).toggleClass("active");
+});
+
+$(".select__input .option").on("click", function (e) {
+  e.stopPropagation();
+  let parent = $(this).closest(".select__input");
+  parent.find("input").val($(this).text());
+
+  parent.removeClass("active");
+  parent.find(".options").slideUp(200);
+});
+
+$(document).on("click", function () {
+  $(".select__input").removeClass("active");
+  $(".options").slideUp(200);
 });
