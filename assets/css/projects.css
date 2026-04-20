@@ -1,0 +1,18 @@
+.projects {
+    padding: 160px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.projects .projects__nav{
+    display: flex;
+    gap: 32px;
+}
+.projects .projects__nav a{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: 200;
+}
+.projects .projects__nav a.active{
+    border-bottom: 1px solid ;
+}
