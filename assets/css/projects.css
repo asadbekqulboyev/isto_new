@@ -20,7 +20,8 @@
 .projects .projects__nav a.active{
     border-bottom: 1px solid ;
 }
-.projects .projects_description {
+.projects .projects_description,
+.awards .awards_description {
     font-weight: 100;
     margin-top: 40px;
 }
