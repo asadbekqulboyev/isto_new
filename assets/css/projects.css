@@ -21,7 +21,8 @@
     border-bottom: 1px solid ;
 }
 .projects .projects_description,
-.awards .awards_description {
+.awards .awards_description,
+.media_description {
     font-weight: 100;
     margin-top: 40px;
 }
