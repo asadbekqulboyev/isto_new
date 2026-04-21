@@ -49,6 +49,7 @@ $(window).on("scroll", function () {
     header.removeClass("fixed");
   }
   lastScroll = currentScroll;
+
   $(".content_block , .content_block_picture").each(function () {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
@@ -60,26 +61,32 @@ $(window).on("scroll", function () {
       $(this).addClass("animated");
     }
   });
-  var knowTop = $(".know").offset().top;
-  var knowHeight = $(".know").outerHeight();
   var scrollTop = $(window).scrollTop();
   var windowHeight = $(window).height();
-  if (
-    scrollTop + windowHeight > knowTop + 100 &&
-    scrollTop < knowTop + knowHeight
-  ) {
-    $(".know-door").addClass("active");
-  } else {
-    $(".know-door").removeClass("active");
-  }
-});
 
+  // know section
+  if ($(".know").length) {
+    var knowTop = $(".know").offset().top;
+    var knowHeight = $(".know").outerHeight();
+
+    if (
+      scrollTop + windowHeight > knowTop + 100 &&
+      scrollTop < knowTop + knowHeight
+    ) {
+      $(".know-door").addClass("active");
+    } else {
+      $(".know-door").removeClass("active");
+    }
+  }
+
+  // projects section
+  $(".projects_bg").css({ transform: `translateY(${scrollY / 20}px)` });
+});
 $(".burger_button").click(function () {
   $(this).toggleClass("active");
   $("body").toggleClass("lock");
   $(".burger_menu__overlay").toggleClass("open");
 });
-
 $(".hero_slider").slick({
   slidesToShow: 1,
   slidesToScroll: 1,

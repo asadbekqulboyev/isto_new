@@ -92,6 +92,13 @@
 .header.fixed .logo img {
     filter: invert(0)
 }
+.header.pr {
+    background: #fff
+}
+
+.header.pr .logo img {
+    filter: invert(0)
+}
 
 .header.hide {
     transform: translateY(-150%)
@@ -145,6 +152,14 @@
 
 .header.fixed .burger_button::after,
 .header.fixed .burger_button::before {
+    background: #000
+}
+.header.pr .burger_button .inner {
+    background: #000
+}
+
+.header.pr .burger_button::after,
+.header.pr .burger_button::before {
     background: #000
 }
 
@@ -226,6 +241,17 @@
     padding-right: 35px
 }
 
+.header.pr .burger_menu__overlay .site_nav a {
+    color: #000
+}
+
+.header.pr .burger_menu__overlay {
+    background: #fff
+}
+
+.header.pr .language_desctop_list {
+    padding-right: 35px
+}
 .language_desctop_list {
     display: flex
 }
@@ -235,6 +261,9 @@
 }
 
 .header.fixed .language_desctop_list a {
+    color: #000
+}
+.header.pr .language_desctop_list a {
     color: #000
 }
 
@@ -248,6 +277,9 @@
     fill: #000
 }
 
+.header.pr .mobile_phones_icon svg {
+    fill: #000
+}
 .mobile_phones_content {
     width: 155px;
     padding: 15px;
@@ -291,6 +323,9 @@
 }
 
 .header.fixed .mobile_phones {
+    top: 40px
+}
+.header.pr .mobile_phones {
     top: 40px
 }
 
