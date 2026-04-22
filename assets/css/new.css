@@ -3663,3 +3663,358 @@ input.check-check {
 .callback .cont-info {
     background: transparent;
 }
+.vacancy_content {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 250px;
+    display: flex;
+    justify-content: space-between;
+    color: #4F5A63;
+
+}
+
+.vacancy .vacancy_title {
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 46px;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.vacancy .vacancy_subtitle {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 25px;
+
+}
+
+.vacancy_left {
+    width: 48%;
+}
+
+.vacancy_right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vacancy_right .vacancy_cat_title {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.vacancy_right .vacancy_cat_title::after {
+    content: '+';
+    display: block;
+    font-weight: 300;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+}
+
+.vacancy_right .vacancy_item {
+    margin-top: 40px;
+}
+
+.vacancy_right .vacancy_item_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.vacancy_right .title_text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+}
+
+.title_city {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 150%;
+    color: #989898;
+}
+
+.vacancy_right .vacancy_item_content .item_title {
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 150%;
+}
+
+.vacancy_item_content {
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 150%;
+    margin-bottom: 25px;
+    overflow: hidden;
+    height: 77px;
+    position: relative;
+}
+
+.vacancy_item_content li {
+    font-weight: 400;
+}
+
+.vacancy_more_btn {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #989898;
+    padding-right: 20px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.vacancy_more_btn::after {
+    content: '+';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.vacancy_item.open .vacancy_more_btn::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.vacancy_item.open .vacancy_more_btn .btn_close {
+    display: none;
+}
+
+.vacancy_item.open .vacancy_more_btn .btn_open {
+    display: block;
+}
+
+.vacancy_item.open .vacancy_item_content {
+    height: auto;
+}
+
+.vacancy_cat {
+    padding: 20px 0;
+    border-bottom: 1px solid #989898;
+}
+
+.vacancy_cat .vacancy_cat_content {
+    display: none;
+}
+
+.vacancy_cat.active .vacancy_cat_content {
+    display: block;
+}
+
+.vc {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #3E464E;
+    margin-top: 120px;
+
+}
+
+@media (max-width:1024px) {
+
+    .vacancy .vacancy_content {
+        padding-top: 150px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .vacancy .vacancy_right {
+        width: 100%;
+    }
+
+    .vacancy .vacancy_left {
+        width: 100%;
+    }
+
+    .vacancy_item_row {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+        align-items: flex-start !important;
+    }
+
+    .vacancy .button {
+        width: 180px;
+        padding: 14px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .vacancy .vacancy_title {
+        font-size: 30px;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+
+    .vc {
+        margin-top: 20px;
+    }
+
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1999999999;
+    background-color: rgba(0, 0, 0, .6);
+    display: none;
+}
+
+.modal .modal_content {
+    background: #fff;
+    box-shadow: 0 0 0 0 rgba(2, 2, 2, 1);
+    background-color: rgba(255, 255, 255, 1);
+    min-width: 0%;
+    max-width: 100%;
+    top: 100px;
+    left: 1055.07px;
+    opacity: 1;
+    display: block;
+    width: 40%;
+    padding: 18px;
+    position: relative;
+
+}
+
+
+.modal .modal_title {
+    text-align: left;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.modal label[for="file"] {
+    display: flex;
+    position: relative;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.modal label[for="file"] .title::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 22px;
+    background-image: url(https://isto.ae/wp-content/themes/isto/static/icons/attach.svg);
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.modal input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.modal .modal_content {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.modal .button {
+    display: block;
+    width: 100%;
+    margin: 35px auto 0 auto;
+    max-width: 400px;
+
+}
+
+.modal .modal_desc {
+    font-weight: 100;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.modal .modal_close {
+    background-color: #fff;
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+}
+
+@media (max-width:1024px) {
+    .modal .modal_content {
+        width: 70%;
+    }
+
+    .modal .modal_title {
+        font-size: 17px;
+    }
+}
+
+@media (max-width:556px) {
+    .modal .modal_content {
+        width: 90%;
+    }
+
+    .modal .modal_title {
+        font-size: 14px;
+    }
+}
+
+.modal_close {
+    cursor: pointer;
+}
+
+.modal.join .flex {
+    display: flex;
+    gap: 20px;
+}
+
+.modal.join .check_input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: 100;
+    gap: 10px;
+}
+
+.modal.join .check_input input {
+    width: fit-content;
+
+}
+
+.modal.join .flex input {
+    width: 100%;
+}
+
+.modal.join .modal_title {
+    text-align: center;
+}

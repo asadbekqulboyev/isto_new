@@ -126,22 +126,26 @@ $(".mobile_phones_icon").click(function () {
   $(".mobile_phones_content").toggleClass("active");
 });
 var input = document.querySelector("#phone");
-var iti = window.intlTelInput(input, {
-  initialCountry: "auto",
-  separateDialCode: true,
-  geoIpLookup: function (success, failure) {
-    $.get("https://ipapi.co/json/", function () {}, "json").always(
-      function (resp) {
-        var countryCode = resp && resp.country_code ? resp.country_code : "uz";
-        success(countryCode.toLowerCase());
-      },
-    );
-  },
-});
 
-$("#phone").on("blur", function () {
-  console.log(iti.getNumber());
-});
+if (input) {
+  var iti = window.intlTelInput(input, {
+    initialCountry: "auto",
+    separateDialCode: true,
+    geoIpLookup: function (success, failure) {
+      $.get("https://ipapi.co/json/", function () {}, "json").always(
+        function (resp) {
+          var countryCode =
+            resp && resp.country_code ? resp.country_code : "uz";
+          success(countryCode.toLowerCase());
+        },
+      );
+    },
+  });
+
+  $("#phone").on("blur", function () {
+    console.log(iti.getNumber());
+  });
+}
 
 $(".select__input").on("click", function (e) {
   e.stopPropagation();
@@ -161,29 +165,62 @@ $(document).on("click", function () {
   $(".select__input").removeClass("active");
   $(".options").slideUp(200);
 });
- $(".team_slider").slick({
-   slidesToShow: 4,
-   slidesToScroll: 1,
-   arrows: true,
-   responsive: [
-     {
-       breakpoint: 1024,
-       settings: {
-         slidesToShow: 2,
-       },
-     },
-     {
-       breakpoint: 768,
-       settings: {
-         slidesToShow: 1,
-       },
-     },
-   ],
- });
- $(".prev_btn").click(function () {
-   $(".team_slider").slick("slickPrev");
- });
+$(".team_slider").slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+});
+$(".prev_btn").click(function () {
+  $(".team_slider").slick("slickPrev");
+});
 
- $(".next_btn").click(function () {
-   $(".team_slider").slick("slickNext");
- });
+$(".next_btn").click(function () {
+  $(".team_slider").slick("slickNext");
+});
+
+$(".vacancy_cat")
+  .removeClass("active")
+  .first()
+  .addClass("active")
+  .find(".vacancy_item")
+  .first()
+  .addClass("open");
+
+// Category (tab)
+$(".vacancy_cat_title").on("click", function () {
+  const cat = $(this).parent();
+
+  $(".vacancy_cat").removeClass("active");
+  cat.addClass("active");
+});
+
+// Item toggle
+$(".vacancy_more_btn").on("click", function () {
+  $(this).closest(".vacancy_item").toggleClass("open");
+});
+$(".vacancy_right .button").click(function () {
+  $(".modal.architec").fadeIn();
+});
+$(".modal_close").click(function () {
+  $(".modal.architec").fadeOut();
+});
+$(".vacancy_left .button").click(function () {
+  $(".modal.join").fadeIn();
+});
+$(".modal_close").click(function () {
+  $(".modal.join").fadeOut();
+});
