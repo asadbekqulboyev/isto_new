@@ -4018,3 +4018,96 @@ input.check-check {
 .modal.join .modal_title {
     text-align: center;
 }
+.hero_meredian {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+
+}
+
+.hero_meredian .slider_title {
+    letter-spacing: 10px;
+    font-weight: 200;
+    margin: 0 0 10px 0;
+    padding-left: 70px;
+}
+
+.hero_meredian_items {
+    display: flex;
+    padding: 30px 150px 30px 70px;
+    border-top: 1px solid #fff;
+    font-size: 14px;
+    position: relative;
+    gap: 25px;
+    color: #fff;
+}
+
+.hero_meredian_title {
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.fig {
+    position: absolute;
+    top: -25px;
+    right: 0;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 0;
+
+}
+
+.gallery img {
+    width: calc(50% - 5px);
+    max-height: 590px;
+    overflow: hidden;
+}
+
+.hero_link {
+    position: absolute;
+    top: 150px;
+    display: flex;
+    left: 0;
+    right: 0;
+    gap: 15px;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.meredians .content_block_picture {
+    order: 2;
+}
+
+.meredians .content_block_inner {
+    max-width: 598px;
+}
+
+@media (max-width:960px) {
+    .fig {
+        display: none !important;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+
+    .hero_meredian_items {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hero_meredian {
+        bottom: 35px;
+    }
+}

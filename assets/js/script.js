@@ -224,3 +224,21 @@ $(".vacancy_left .button").click(function () {
 $(".modal_close").click(function () {
   $(".modal.join").fadeOut();
 });
+
+const items = [];
+
+$(".gallery img").each(function () {
+  let imgSrc = $(this).attr("data-lazy-src") || $(this).attr("src");
+  items.push({ href: imgSrc, type: "image" });
+});
+
+const lightbox = GLightbox({
+  elements: items,
+});
+
+$(".gallery img").on("click", function () {
+  let index = $(".gallery img").index(this);
+  lightbox.openAt(index);
+});
+
+$(".gallery img").css("cursor", "pointer");
