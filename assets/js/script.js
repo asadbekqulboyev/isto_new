@@ -161,3 +161,29 @@ $(document).on("click", function () {
   $(".select__input").removeClass("active");
   $(".options").slideUp(200);
 });
+ $(".team_slider").slick({
+   slidesToShow: 4,
+   slidesToScroll: 1,
+   arrows: true,
+   responsive: [
+     {
+       breakpoint: 1024,
+       settings: {
+         slidesToShow: 2,
+       },
+     },
+     {
+       breakpoint: 768,
+       settings: {
+         slidesToShow: 1,
+       },
+     },
+   ],
+ });
+ $(".prev_btn").click(function () {
+   $(".team_slider").slick("slickPrev");
+ });
+
+ $(".next_btn").click(function () {
+   $(".team_slider").slick("slickNext");
+ });
