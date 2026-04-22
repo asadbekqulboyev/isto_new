@@ -3638,3 +3638,28 @@ input.check-check {
         margin-bottom: 20px;
     }
 }
+.contacts {
+    background: url(https://isto.ae/wp-content/themes/isto/static/img/cont_map_bg.png) no-repeat center;
+    background-size: cover;
+}
+
+.contacts .callback_description {
+    display: block;
+    color: #3E464E;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    letter-spacing: .105em;
+    font-weight: 400;
+}
+
+.contacts .callback {
+    margin-top: 160px;
+    padding: 0 20px;
+}
+
+.callback .cont-info {
+    background: transparent;
+}
